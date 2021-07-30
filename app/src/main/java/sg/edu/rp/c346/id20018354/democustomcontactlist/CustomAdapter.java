@@ -31,17 +31,17 @@ public class CustomAdapter extends ArrayAdapter {
 
         // Obtain the UI components and do the necessary binding
         TextView tvName = rowView.findViewById(R.id.textViewName);
-        TextView tvCountryCode = rowView.findViewById(R.id.textViewCountryCode;
-        TextView tvPhoneNum = rowView.findViewById(R.id.textViewPhoneNum);
+        TextView tvCode = rowView.findViewById(R.id.textViewCountryCode);
+        TextView tvNum = rowView.findViewById(R.id.textViewPhoneNum);
 
 
         // Obtain the Android Version information based on the position
-        Contact currentContact = contactList.get(position);
+        Contact currentItem = contactList.get(position);
 
         // Set values to the TextView to display the corresponding information
-        tvName.setText(currentContact.getName());
-        tvCountryCode.setText(currentContact.getCountryCode());
-        tvPhoneNum.setText(currentContact.getPhoneNum());
+        tvName.setText(currentItem.getName());
+        tvCode.setText("+" + currentItem.getCountryCode());
+        tvNum.setText(currentItem.getPhoneNum() + "");
 
         return rowView;
     }
