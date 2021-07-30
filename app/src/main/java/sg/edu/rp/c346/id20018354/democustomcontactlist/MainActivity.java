@@ -2,7 +2,10 @@ package sg.edu.rp.c346.id20018354.democustomcontactlist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -25,5 +28,14 @@ public class MainActivity extends AppCompatActivity {
         alContactList.add(item2);
         caContact = new CustomAdapter(this, R.layout.row,alContactList);
         lvContact.setAdapter(caContact);
+        lvContact.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this,DetailActivity.class);
+                Contact contact = alContactList.get(position);
+                intent.putExtra("Contact",contact);
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -1,6 +1,8 @@
 package sg.edu.rp.c346.id20018354.democustomcontactlist;
 
-public class Contact {
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private String name;
     private int countryCode;
     private int phoneNum;
